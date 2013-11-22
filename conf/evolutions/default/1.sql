@@ -21,15 +21,11 @@ CREATE TABLE quest_par_format (
     PRIMARY KEY (id)
 );
 CREATE TABLE question_par (
-    quiz_id integer NOT NULL,
+    quiz_id integer NOT NULL REFERENCES quiz(id),
     quest_num integer NOT NULL,
     quest_text TEXT,
-    format_id integer,
-    PRIMARY KEY (quiz_id, quest_num),
-    --INDEX quiz_ind (quiz_id),
-    FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE,
-    --INDEX format_ind (format_id),
-    FOREIGN KEY (format_id) REFERENCES quest_par_format(id)
+    format_id integer REFERENCES quest_par_format(id),
+    PRIMARY KEY (quiz_id, quest_num)
 );
 CREATE TABLE correct_answer (
 	quiz_id integer NOT NULL,
@@ -57,7 +53,7 @@ CREATE TABLE role (
     PRIMARY KEY (id)
 );
 CREATE SEQUENCE user_seq;
-CREATE TABLE user (
+CREATE TABLE "user" (
 	id integer NOT NULL DEFAULT nextval('user_seq'),
 	user_name varchar(25) UNIQUE,
 	first_name varchar(45),
@@ -113,7 +109,7 @@ CREATE TABLE user_course (
 	course_id integer NOT NULL,
 	PRIMARY KEY (user_id, course_id),
 	--INDEX user_ind (user_id),
-	FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE,
 	--INDEX course_ind (course_id),
 	FOREIGN KEY (course_id) REFERENCES course(id) ON DELETE CASCADE
 );
@@ -123,10 +119,10 @@ CREATE TABLE quiz_attempt (
 	attemptNum integer NOT NULL,
 	score varchar(20),
 	taker_ans TEXT,
-	date_time DATETIME,
+	date_time TIMESTAMP,
 	PRIMARY KEY (user_id, quiz_id, attemptNum),
 	--INDEX user_ind (user_id),
-	FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
+	FOREIGN KEY (user_id) REFERENCES "user"(id) ON DELETE CASCADE,
 	--INDEX quiz_ind (quiz_id),
 	FOREIGN KEY (quiz_id) REFERENCES quiz(id) ON DELETE CASCADE
 );
@@ -139,8 +135,8 @@ DROP TABLE quiz_unit;
 DROP TABLE unit;
 DROP TABLE quiz_course;
 DROP TABLE course;
-DROP TABLE user;
-DROP TABLE role;
+DROP TABLE "user";
+DROP TABLE "role";
 DROP TABLE draggable;
 DROP TABLE correct_answer;
 DROP TABLE question_par;

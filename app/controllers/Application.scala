@@ -16,7 +16,7 @@ import play.api.libs.json._
 object Application extends Controller { // with Secured{
     
     def index = Action {
-        println("index - calling Redirect...")
+        println("Application.index - calling Redirect...")
 		Redirect(routes.Application.createNewQuiz)
 	}
 	
@@ -24,6 +24,7 @@ object Application extends Controller { // with Secured{
 	 * Create single
 	 */
 	def quiz(quizId: Long) = Action { implicit request =>
+	    println("Application.quiz - TOP");
 	  	// TO DO: Move as much as possible to the model.
 	    // from Scala to Json
   		val quiz = Quiz.single(quizId)
@@ -31,7 +32,9 @@ object Application extends Controller { // with Secured{
   		val answers = Answer.all(quizId)
   		val draggables = Draggable.all(quizId)
   		
-  		// Jerkson - TO DO: move this to the model
+  		println("Application.quiz - about to process quizJsonResponse...");
+  		
+  		// TO DO: move this to the model
   		val quizJsonResponse = Json.obj(
 	        "quizId"	-> quiz.id.get,
   		    "quizTitle" -> quiz.title,
@@ -56,7 +59,11 @@ object Application extends Controller { // with Secured{
   		    ))}
   		)
   		
+  		println("Application.quiz - AFTER processing quizJsonResponse, about to call Json.toJson(quizJsonResponse)");
+  		
   		Json.toJson(quizJsonResponse)
+  		
+  		println("Application.quiz - AFTER calling Json.toJson(quizJsonResponse), about to call Ok(quizJsonResponse)");
   		
   		Ok(quizJsonResponse)
 	} // End - quiz
@@ -143,6 +150,8 @@ object Application extends Controller { // with Secured{
 				    (d \ "draggable").as[String],
 				    (d \ "dispOrder").as[Int]))
 			}
+			
+			println("------ AFTER draggable, about to call REDIRECT to routes.Application.quiz(quizId.get) --------------------")
 	
 			/* TO DO: Need redirect per PRG pattern: http://www.theserverside.com/news/1365146/Redirect-After-Post
 			 * and http://stackoverflow.com/questions/3899670/how-can-i-influence-the-redirect-behavior-in-a-play-controller?rq=1
