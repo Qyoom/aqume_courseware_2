@@ -1,0 +1,262 @@
+@charset "UTF-8";
+/* CSS Document */
+#main-container {
+	height: auto;
+	width: 675px;
+	margin-left: 30px;
+}
+
+#QandA-area {
+	clear: both;
+	width: 100%;
+	float: left
+}
+
+#cloze-questions-create, #cloze-questions-present {
+	float: left;
+	width: 470px;
+}
+
+#draggables-panel {
+	float:right;
+	display:none;
+	width:178px;	
+}
+
+#draggables-heading {
+    font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: -12px;
+    text-align: center;
+    color: rgb(102, 0, 51);
+}
+
+#drag-ans-list {
+	margin-top: 15px;
+	background-color: #EDBFAC;
+	border-color: #EDBFAC;
+	border-width: 2px;
+	border-style: solid;
+	padding: 12px;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Old Firefox */
+	-moz-box-shadow: 5px 5px 3px #888;
+	-webkit-box-shadow: 5px 5px 3px #888;
+	box-shadow: 5px 5px 3px #888;
+	width:150px;
+}
+
+#header-panel {
+	float: left;
+	width: 100%;
+	margin-top:15px;
+	overflow:hidden;
+	position:relative;
+}
+
+#diagnostic-log {
+	border-width: 1px;
+	border-color: #000;
+	border-style: solid;
+	margin-top: 5px;
+}
+
+#diag-log-div {
+	margin-top: 20px;
+	width: 100%;	
+}
+
+#log-panel {
+	margin-left: 30px;
+}
+
+#score {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color: #03F;
+}
+
+#save-text-button {
+	margin-top: 4px;
+}
+
+#app-banner {
+	width: 100%;
+	display:inline-block;
+	overflow:auto;
+	float:left;
+	position:relative;
+	height:135px;
+}
+
+#app-name {
+	/*float:left;*/
+	/*overflow:auto;*/
+	clear:both;
+	margin-top:-6px;
+	margin-bottom:4px;
+}
+
+#text-buttons {
+	clear: both;
+}
+
+#quiz-title-create {
+	float:left;
+	height:auto;
+	width:80%;
+	overflow:hidden;
+}
+
+#quiz-title-display {
+	float:left;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 14px;
+	font-weight: bold;
+	color:#43765F
+}
+
+#quiz-title-label {
+	float:left;
+	height:auto;
+	margin-right:5px;
+	font-size:12px;
+}
+
+#quiz-title-div {
+	overflow:hidden;
+	clear:both;
+	width:70%;
+}
+
+#enterTextMessage {
+	background-image:url(../images/1.png);
+}
+
+#enterTextMessage span {
+	font-style:italic;
+}
+
+#savedTextMessage {
+	background-image:url(../images/2.png);
+}
+
+#savedQuizMessage {
+	background-image:url(../images/3.png);
+}
+
+#score {
+	background-image:url(../images/check-mark.png);
+	background-position:4px -5px;
+}
+
+#cloze-text-edit {
+	padding-left:12px;
+	padding-top:12px;
+}
+
+body {
+	background-color:rgb(199,209,217)
+}
+
+h1 {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 24px;
+	font-style: bold;
+	color: #603;
+	margin-bottom: 0;
+	float: left;
+}
+
+li {
+	list-style: none;
+}
+
+label {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+}
+
+.admin-panel {
+	background-color: #CC9;
+	padding-right: 5px;
+	padding-top: 4px;
+	padding-bottom: 3px;
+	overflow:auto;
+	position:absolute;
+	top:0;
+	right:0;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Old Firefox */
+}
+
+.user-message {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	padding: 5px;
+	display:inline-block;
+	background-color: #FFC;
+	background-repeat:no-repeat;
+	padding-left:50px;
+	background-position:4px 4px;
+	position:absolute;
+	left:0;
+	right:0;
+	top:58px;
+	min-height:40px;
+	border-radius:5px;
+	-moz-border-radius:5px; /* Old Firefox */
+}
+
+.incorrectStyle {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #F63;
+	padding-left: 5px;
+}
+
+.correctStyle {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: green;
+	padding-left: 5px;
+}
+
+.correctAns {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: rgb(0, 51, 255);
+}
+
+.draggable {
+	margin-bottom: 4px;
+}
+
+.draggables-buttons {
+	/*clear: both;*/
+}
+
+.qu {
+	/**/
+}
+
+.br {
+	margin-bottom:34px;
+}
+
+.cloze-field-incorrect {
+	border-color:#F00;
+}

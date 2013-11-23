@@ -24,7 +24,7 @@ CREATE TABLE question_par (
     quiz_id integer NOT NULL REFERENCES quiz(id),
     quest_num integer NOT NULL,
     quest_text TEXT,
-    format_id integer REFERENCES quest_par_format(id),
+    format_id integer REFERENCES quest_par_format(id) ON DELETE CASCADE,
     PRIMARY KEY (quiz_id, quest_num)
 );
 CREATE TABLE correct_answer (
