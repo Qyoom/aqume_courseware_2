@@ -638,13 +638,12 @@ function responseSavedQuiz(quizJson) {
 	allowDragAndDrop = quizContent.drag;
 	
 	logDiagnostic("responseSavedQuiz - BEFORE processing of answers - answers: " + quizContent.answers);
-	inspectObjProperties(quizContent.answers, "answers");
+	//inspectObjProperties(quizContent.answers, "answers");
 	
 	/* Answers */
 	var answers = [];
 	$.each(quizContent.answers, function(i, answer) {
 		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers, function(i, answer) - answer: " + answer);
-		//answer = $.parseJSON(answer);
 		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers... - answer: " + answer);
 		var key = (answer.questNum) + "";
 		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers... - key: " + key);
@@ -654,7 +653,6 @@ function responseSavedQuiz(quizJson) {
 	
 	/* Questions */
 	$.each(quizContent.questions, function(i, question) {
-		//question = $.parseJSON(question);
 		logDiagnostic("responseSavedQuiz[questions] - question.questNum: " + question.questNum 
 			+ " | question.questText: " + question.questText + " | question.format: " + question.format);
 		var questText = question.questText;
@@ -679,7 +677,6 @@ function responseSavedQuiz(quizJson) {
 		}
 		
 		$.each(quizContent.draggables, function(i, draggable) {
-			//draggable = $.parseJSON(draggable);			
 			var newDraggable = document.createElement("li");
 			newDraggable.setAttribute("id", draggable.draggable);
 			newDraggable.setAttribute("class", "draggable");
