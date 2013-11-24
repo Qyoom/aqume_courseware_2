@@ -620,14 +620,10 @@ function dropText(ev) {
 /************ Load and "Take" Quiz Functions ***************/
 
 // Load JSON quiz data
-function responseSavedQuiz(quizJsonStr) {
-	logDiagnostic("responseSavedQuiz - TOP - quizJsonStr: " + quizJsonStr);
-	inspectObjProperties(quizJsonStr, "quizJsonStr");
+function responseSavedQuiz(quizJson) {
+	quizContent = quizJson;
 	
-	quizContent = quizJsonStr;
-	
-	logDiagnostic("responseSavedQuiz - AFTER $.parseJSON(quizJsonStr) - quizContent: " + quizContent);
-
+	logDiagnostic("responseSavedQuiz - quizContent: " + quizContent);
 	logDiagnostic("responseSavedQuiz - quizContent.quizId: " + quizContent.quizId);
 	logDiagnostic("responseSavedQuiz - quizContent.quizTitle: " + quizContent.quizTitle);
 	logDiagnostic("responseSavedQuiz - quizContent.retries: " + quizContent.retries);
