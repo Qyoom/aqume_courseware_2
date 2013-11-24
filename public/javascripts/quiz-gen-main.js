@@ -191,10 +191,7 @@ function responseCheckAnswers(attemptRespJson) {
 	logDiagnostic("responseCheckAnswers - attemptRespJson: " + attemptRespJson);
 	
 	// Parse Json response
-	//var attemptRespJson = $.parseJSON(attemptRespJsonStr) - NIX
-	$.each(attemptRespJson.results, function(i, result) {
-		//result = $.parseJSON(result);
-		
+	$.each(attemptRespJson.results, function(i, result) {		
 		logDiagnostic("-------responseCheckAnswers - questNum: " + result.questNum + " | wordInd: " + result.wordInd + 
 			" | is correct: " + result.isCorrect + "------------------");
 		
@@ -627,7 +624,6 @@ function responseSavedQuiz(quizJsonStr) {
 	logDiagnostic("responseSavedQuiz - TOP - quizJsonStr: " + quizJsonStr);
 	inspectObjProperties(quizJsonStr, "quizJsonStr");
 	
-	//quizContent = $.parseJSON(quizJsonStr);
 	quizContent = quizJsonStr;
 	
 	logDiagnostic("responseSavedQuiz - AFTER $.parseJSON(quizJsonStr) - quizContent: " + quizContent);
