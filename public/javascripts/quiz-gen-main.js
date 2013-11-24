@@ -187,13 +187,13 @@ function checkAnswers() {
 		jqxhr.complete(function(data){ logDiagnostic("checkAnswers - second complete: " + data); });
 } // End - checkAnswers
 
-function responseCheckAnswers(attemptRespJsonStr) {
-	logDiagnostic("responseCheckAnswers - attemptRespJsonStr: " + attemptRespJsonStr);
+function responseCheckAnswers(attemptRespJson) {
+	logDiagnostic("responseCheckAnswers - attemptRespJson: " + attemptRespJson);
 	
 	// Parse Json response
-	var attemptRespJson = $.parseJSON(attemptRespJsonStr)
+	//var attemptRespJson = $.parseJSON(attemptRespJsonStr) - NIX
 	$.each(attemptRespJson.results, function(i, result) {
-		result = $.parseJSON(result);
+		//result = $.parseJSON(result);
 		
 		logDiagnostic("-------responseCheckAnswers - questNum: " + result.questNum + " | wordInd: " + result.wordInd + 
 			" | is correct: " + result.isCorrect + "------------------");
@@ -645,18 +645,24 @@ function responseSavedQuiz(quizJsonStr) {
 	if(quizContent.retries > 0) allowRetries = true; else false;
 	allowDragAndDrop = quizContent.drag;
 	
+	logDiagnostic("responseSavedQuiz - BEFORE processing of answers - answers: " + quizContent.answers);
+	inspectObjProperties(quizContent.answers, "answers");
+	
 	/* Answers */
 	var answers = [];
 	$.each(quizContent.answers, function(i, answer) {
-		answer = $.parseJSON(answer);
+		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers, function(i, answer) - answer: " + answer);
+		//answer = $.parseJSON(answer);
+		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers... - answer: " + answer);
 		var key = (answer.questNum) + "";
+		logDiagnostic("responseSavedQuiz - inside $.each(quizContent.answers... - key: " + key);
 		answers[key] = answer; // TO DO: NO NO NO. Answers cannot be exposed! This must not be passed. Rather, a stub/token must be set in the question sentence. The index can be used if necessary.
 		logDiagnostic("responseSavedQuiz[answers]." + key + ": " + answers[key].answer);
 	});
 	
 	/* Questions */
 	$.each(quizContent.questions, function(i, question) {
-		question = $.parseJSON(question);
+		//question = $.parseJSON(question);
 		logDiagnostic("responseSavedQuiz[questions] - question.questNum: " + question.questNum 
 			+ " | question.questText: " + question.questText + " | question.format: " + question.format);
 		var questText = question.questText;
@@ -681,7 +687,7 @@ function responseSavedQuiz(quizJsonStr) {
 		}
 		
 		$.each(quizContent.draggables, function(i, draggable) {
-			draggable = $.parseJSON(draggable);			
+			//draggable = $.parseJSON(draggable);			
 			var newDraggable = document.createElement("li");
 			newDraggable.setAttribute("id", draggable.draggable);
 			newDraggable.setAttribute("class", "draggable");
