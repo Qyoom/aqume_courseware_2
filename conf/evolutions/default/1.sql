@@ -59,7 +59,7 @@ CREATE TABLE "user" (
 	first_name varchar(45),
 	last_name varchar(45),
 	password varchar(20) NOT NULL,
-	"role" varchar(20) NOT NULL,
+	"role" varchar(20) REFERENCES "role"("role") ON DELETE CASCADE,
 	email varchar(60),
     created TIMESTAMP NULL,
     modified TIMESTAMP NULL,
