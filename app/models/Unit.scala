@@ -15,7 +15,7 @@ case class Unit (
 	id: 	   Pk[Long] = NotAssigned,
 	courseId:  Option[Int],
 	title: 	   Option[String],
-	descrip: 	   Option[String],
+	descrip:   Option[String],
 	schedule:  Option[String]
 )
 
@@ -44,8 +44,8 @@ object Unit {
 	    DB.withConnection { implicit connection =>
 	      	SQL(
 	      		"""
-      			insert into unit values (
-      				NULL, {courseId}, {title}, {descrip}, {schedule}
+      			insert into unit (course_id, title, descrip, schedule) values (
+	      	        {courseId}, {title}, {descrip}, {schedule}
       			)
 	      		"""
       		).on(
