@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /                           	controllers.Application.index
+GET     /                           	controllers.Quizzes.index
 #GET     /                           	controllers.Quizzes.createNewQuiz
 
 # Authentication
@@ -21,12 +21,12 @@ GET     /                           	controllers.Application.index
 #DELETE  /courses/:course            	controllers.Courses.delete(course: Long)
 
 # Quizzes
-GET		/quizzes/:id					controllers.Application.quiz(id: Long)
-POST    /saveQuiz              			controllers.Application.saveQuiz
-GET     /createNewQuiz              	controllers.Application.createNewQuiz
-POST	/checkAnswers					controllers.Application.submit
-GET		/attempts/:quizId/:attemptNum	controllers.Application.attempt(quizId: Long, attemptNum: Int)
-#POST   /quizzes/:id/delete       		controllers.Application.deleteQuiz(id: Long)
+GET		/quizzes/:id					controllers.Quizzes.quiz(id: Long)
+POST    /saveQuiz              			controllers.Quizzes.saveQuiz
+GET     /createNewQuiz              	controllers.Quizzes.createNewQuiz
+POST	/checkAnswers					controllers.Quizzes.submit
+GET		/attempts/:quizId/:attemptNum	controllers.Quizzes.attempt(quizId: Long, attemptNum: Int)
+#POST   /quizzes/:id/delete       		controllers.Quizzes.deleteQuiz(id: Long)
 
 # Javascript routing
 #GET     /assets/javascripts/routes  	controllers.Application.javascriptRoutes
