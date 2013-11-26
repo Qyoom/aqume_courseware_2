@@ -3,22 +3,22 @@
 # ~~~~
 
 # Home page
-GET     /                           	controllers.Quizzes.index
+GET     /                           	controllers.Application.index
 #GET     /                           	controllers.Quizzes.createNewQuiz
 
 # Authentication
-#GET     /login                      	controllers.Application.login
-#POST    /login                      	controllers.Application.authenticate
-#GET     /logout                     	controllers.Application.logout
+GET     /login                      	controllers.Application.login
+POST    /login                      	controllers.Application.authenticate
+GET     /logout                     	controllers.Application.logout
 
 # Courses                                  
-#GET     /editCourse/:id		       		controllers.Courses.edit(id: Long)
-#GET     /showCourse/:id		       		controllers.Courses.show(id: Long)
-#POST   	/createCourse                   controllers.Courses.createCourse
-#GET     /courseForm                   	controllers.Courses.newCourseForm
-#POST   	/createUnit                   	controllers.Courses.createUnit(id: Long, courseId: Long, title: String, descrip: String, schedule: String)
-#GET     /unitForm                   	controllers.Courses.newUnitForm
-#DELETE  /courses/:course            	controllers.Courses.delete(course: Long)
+GET     /editCourse/:id		       		controllers.Courses.edit(id: Long)
+GET     /showCourse/:id		       		controllers.Courses.show(id: Long)
+POST   	/createCourse                   controllers.Courses.createCourse
+GET     /courseForm                   	controllers.Courses.newCourseForm
+POST   	/createUnit                   	controllers.Courses.createUnit(id: Long, courseId: Long, title: String, descrip: String, schedule: String)
+GET     /unitForm                   	controllers.Courses.newUnitForm
+DELETE  /courses/:course            	controllers.Courses.delete(course: Long)
 
 # Quizzes
 GET		/quizzes/:id					controllers.Quizzes.quiz(id: Long)
@@ -29,7 +29,11 @@ GET		/attempts/:quizId/:attemptNum	controllers.Quizzes.attempt(quizId: Long, att
 #POST   /quizzes/:id/delete       		controllers.Quizzes.deleteQuiz(id: Long)
 
 # Javascript routing
-#GET     /assets/javascripts/routes  	controllers.Application.javascriptRoutes
+GET     /assets/javascripts/routes  	controllers.Application.javascriptRoutes
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               	controllers.Assets.at(path="/public", file)
+
+
+
+
